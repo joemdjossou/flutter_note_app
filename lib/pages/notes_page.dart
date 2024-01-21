@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_note_app/components/drawer.dart';
 import 'package:flutter_note_app/models/note.dart';
 import 'package:flutter_note_app/models/note_database.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -110,9 +111,9 @@ class _NotesPageState extends State<NotesPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       floatingActionButton: FloatingActionButton(
         onPressed: createNote,
-        child: const Icon(Icons.add),
+        child: Icon(Icons.add, color: Theme.of(context).colorScheme.inversePrimary,),
       ),
-      drawer: Drawer(),
+      drawer: const MyDrawer(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_note_app/components/drawer.dart';
+import 'package:flutter_note_app/components/note_tile.dart';
 import 'package:flutter_note_app/models/note.dart';
 import 'package:flutter_note_app/models/note_database.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -111,7 +112,11 @@ class _NotesPageState extends State<NotesPage> {
       backgroundColor: Theme.of(context).colorScheme.background,
       floatingActionButton: FloatingActionButton(
         onPressed: createNote,
-        child: Icon(Icons.add, color: Theme.of(context).colorScheme.inversePrimary,),
+        backgroundColor: Theme.of(context).colorScheme.primary,
+        child: Icon(
+          Icons.add,
+          color: Theme.of(context).colorScheme.inversePrimary,
+        ),
       ),
       drawer: const MyDrawer(),
       body: Column(
@@ -138,23 +143,10 @@ class _NotesPageState extends State<NotesPage> {
                 final note = currentNotes[index];
 
                 //List tile UI
-                return ListTile(
-                  title: Text(note.text),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      //edit button
-                      IconButton(
-                        onPressed: () => updateNotes(note),
-                        icon: const Icon(Icons.edit),
-                      ),
-                      //delete button
-                      IconButton(
-                        onPressed: () => deleteNote(note.id),
-                        icon: const Icon(Icons.delete),
-                      ),
-                    ],
-                  ),
+                return NoteTile(
+                  text: note.text,
+                  onEditPressed: () => updateNotes(note),
+                  onDeletePressed: () => deleteNote(note.id),
                 );
               },
             ),

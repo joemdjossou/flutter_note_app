@@ -44,6 +44,7 @@ class _NotesPageState extends State<NotesPage> {
 
               //pop dialog box
               Navigator.pop(context);
+
             },
             child: const Text('Create'),
           ),
@@ -109,7 +110,9 @@ class _NotesPageState extends State<NotesPage> {
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
+
       backgroundColor: Theme.of(context).colorScheme.background,
+
       floatingActionButton: FloatingActionButton(
         onPressed: createNote,
         backgroundColor: Theme.of(context).colorScheme.primary,
@@ -118,7 +121,9 @@ class _NotesPageState extends State<NotesPage> {
           color: Theme.of(context).colorScheme.inversePrimary,
         ),
       ),
+
       drawer: const MyDrawer(),
+
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -137,7 +142,7 @@ class _NotesPageState extends State<NotesPage> {
           //LIST OF NOTES
           Expanded(
             child: ListView.builder(
-              itemCount: noteDatabase.currentNotes.length,
+              itemCount: currentNotes.length,
               itemBuilder: (context, index) {
                 //get individual note
                 final note = currentNotes[index];

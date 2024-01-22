@@ -13,7 +13,7 @@ class MyDrawer extends StatelessWidget {
         children: [
           //header sec
           const DrawerHeader(
-            child: Icon(Icons.note),
+            child: Icon(Icons.book),
           ),
 
           //note tile sec
